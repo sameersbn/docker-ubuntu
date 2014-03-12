@@ -1,0 +1,41 @@
+#!/bin/bash
+
+set -e
+
+# start supervisord
+/usr/bin/supervisord
+
+app_start () {
+	tail -F /var/log/supervisor/supervisord.log
+}
+
+app_help () {
+	echo "Available options:"
+	echo " app:start          - Start the app and watch the supervisor log (default)"
+	echo " app:help           - Displays the help"
+	echo " [command]          - Execute the specified linux command eg. bash."
+}
+
+case "$1" in
+	app:start)
+		app_start
+		;;
+	app:help)
+		app_help
+		;;
+	*)
+		if [ -x $1 ]; then
+			$1
+		else
+			prog=$(which $1)
+			if [ -n "${prog}" ] ; then
+				shift 1
+				$prog $@
+			else
+				app_help
+			fi
+		fi
+		;;
+esac
+
+exit 0

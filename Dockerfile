@@ -15,10 +15,11 @@ RUN apt-get install -y vim curl wget sudo net-tools pwgen && \
 # image specific
 
 ADD assets/ /ubuntu/
-RUN chmod 755 /ubuntu/setup/install && /ubuntu/setup/install
+RUN chmod 755 /ubuntu/init /ubuntu/setup/install && /ubuntu/setup/install
 
 ADD authorized_keys /root/.ssh/
 RUN mv /ubuntu/.vimrc /ubuntu/.bash_aliases /root/
 RUN chmod 700 /root/.ssh && chmod 600 /root/.ssh/authorized_keys && chown root:root -R /root
 
-CMD ["/usr/bin/supervisord", "-n"]
+ENTRYPOINT ["/ubuntu/init"]
+CMD ["app:start"]
