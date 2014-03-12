@@ -21,5 +21,6 @@ ADD authorized_keys /root/.ssh/
 RUN mv /ubuntu/.vimrc /ubuntu/.bash_aliases /root/
 RUN chmod 700 /root/.ssh && chmod 600 /root/.ssh/authorized_keys && chown root:root -R /root
 
+EXPOSE 22
 ENTRYPOINT ["/ubuntu/init"]
 CMD ["app:start"]
