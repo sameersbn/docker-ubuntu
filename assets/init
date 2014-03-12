@@ -5,11 +5,11 @@ set -e
 # start supervisord
 /usr/bin/supervisord
 
-app_start () {
+appStart () {
 	tail -F /var/log/supervisor/supervisord.log
 }
 
-app_help () {
+appHelp () {
 	echo "Available options:"
 	echo " app:start          - Start the app and watch the supervisor log (default)"
 	echo " app:help           - Displays the help"
@@ -18,10 +18,10 @@ app_help () {
 
 case "$1" in
 	app:start)
-		app_start
+		appStart
 		;;
 	app:help)
-		app_help
+		appHelp
 		;;
 	*)
 		if [ -x $1 ]; then
@@ -32,7 +32,7 @@ case "$1" in
 				shift 1
 				$prog $@
 			else
-				app_help
+				appHelp
 			fi
 		fi
 		;;
