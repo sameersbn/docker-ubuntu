@@ -15,11 +15,11 @@ RUN apt-get install -y vim curl wget sudo net-tools pwgen && \
 # image specific
 
 ADD assets/ /ubuntu/
+RUN mv /ubuntu/.vimrc /ubuntu/.bash_aliases /root/
 RUN chmod 755 /ubuntu/init /ubuntu/setup/install && /ubuntu/setup/install
 
 ADD authorized_keys /root/.ssh/
-RUN mv /ubuntu/.vimrc /ubuntu/.bash_aliases /root/
-RUN chmod 700 /root/.ssh && chmod 600 /root/.ssh/authorized_keys && chown root:root -R /root
+RUN chmod 700 /root/.ssh && chmod 600 /root/.ssh/authorized_keys && chown root:root -R /root/.ssh
 
 EXPOSE 22
 ENTRYPOINT ["/ubuntu/init"]
