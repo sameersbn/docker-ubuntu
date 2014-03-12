@@ -14,7 +14,7 @@ RUN apt-get install -y vim curl wget sudo net-tools pwgen && \
 
 # image specific
 
-ADD resources/ /ubuntu/
+ADD assets/ /ubuntu/
 RUN chmod 755 /ubuntu/setup/install && /ubuntu/setup/install
 
 ADD authorized_keys /root/.ssh/
