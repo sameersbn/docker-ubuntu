@@ -14,11 +14,7 @@ RUN dpkg-divert --local --rename --add /sbin/initctl && \
 RUN apt-get install -y vim curl wget sudo net-tools pwgen unzip \
 			logrotate supervisor openssh-server && apt-get clean
 
-# build tools
-# RUN apt-get install -y gcc make && apt-get clean
-
 # image specific
-
 ADD assets/ /app/
 RUN mv /app/.vimrc /app/.bash_aliases /root/
 RUN chmod 755 /app/init /app/setup/install && /app/setup/install
