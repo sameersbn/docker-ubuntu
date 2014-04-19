@@ -23,3 +23,15 @@ autorestart=true
 stdout_logfile=/var/log/supervisor/%(program_name)s.log
 stderr_logfile=/var/log/supervisor/%(program_name)s.log
 EOF
+
+cat > /etc/logrotate.d/supervisord <<EOF
+/var/log/supervisor/*.log {
+    weekly
+    missingok
+    rotate 52
+    compress
+    delaycompress
+    notifempty
+    copytruncate
+}
+EOF
