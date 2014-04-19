@@ -6,7 +6,7 @@ cat > /etc/supervisor/conf.d/sshd.conf <<EOF
 directory=/
 command=/usr/sbin/sshd -D
 user=root
-autostart=true
+autostart=false
 autorestart=true
 stdout_logfile=/var/log/supervisor/%(program_name)s.log
 stderr_logfile=/var/log/supervisor/%(program_name)s_error.log
