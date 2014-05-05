@@ -19,8 +19,7 @@ RUN mv /app/.vimrc /app/.bash_aliases /root/ && \
 		mkdir -p /root/.ssh && touch /root/.ssh/authorized_keys && \
 		chmod 700 /root/.ssh && chmod 600 /root/.ssh/authorized_keys && chown root:root -R /root/.ssh && \
 		chmod 755 /app/init /app/setup/install
-RUN /app/setup/install && \
-		chmod 700 /var/run/sshd
+RUN /app/setup/install
 
 RUN sed 's/UsePAM yes/UsePAM no/' -i /etc/ssh/sshd_config && \
 		sed 's/PermitRootLogin without-password/PermitRootLogin yes/' -i /etc/ssh/sshd_config
