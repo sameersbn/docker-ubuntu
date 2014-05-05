@@ -11,7 +11,7 @@ RUN apt-get update && \
 		apt-get install -y vim curl wget sudo net-tools pwgen unzip \
 			logrotate supervisor openssh-server language-pack-en && \
 		locale-gen en_US && \
-		apt-get clean # 20140418
+		apt-get clean # 20140505
 
 ADD assets/ /app/
 RUN mv /app/.vimrc /app/.bash_aliases /root/ && \
