@@ -3,8 +3,7 @@ MAINTAINER sameer@damagehead.com
 
 ENV DEBIAN_FRONTEND noninteractive
 
-RUN sed 's/main$/main universe/' -i /etc/apt/sources.list && \
-		apt-get update && \
+RUN apt-get update && \
 		dpkg-divert --local --rename --add /sbin/initctl && \
 		ln -sf /bin/true /sbin/initctl && \
 		dpkg-divert --local --rename --add /usr/bin/ischroot && \
