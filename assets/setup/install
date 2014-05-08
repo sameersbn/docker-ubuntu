@@ -1,7 +1,6 @@
 #!/bin/bash
 
-mkdir -p /var/run/sshd
-chmod 700 /var/run/sshd
+mkdir -p -m0700 /var/run/sshd
 cat > /etc/supervisor/conf.d/sshd.conf <<EOF
 [program:sshd]
 directory=/
