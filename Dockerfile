@@ -9,9 +9,10 @@ RUN apt-get update && \
 		dpkg-divert --local --rename --add /usr/bin/ischroot && \
 		ln -sf /bin/true /usr/bin/ischroot && \
 		apt-get install -y vim curl wget sudo net-tools pwgen unzip \
-			logrotate supervisor openssh-server language-pack-en && \
+			logrotate supervisor openssh-server language-pack-en \
+			software-properties-common && \
 		locale-gen en_US && \
-		apt-get clean # 20140508
+		apt-get clean # 20140519
 
 ADD assets/ /app/
 RUN mv /app/.vimrc /app/.bash_aliases /root/ && \
