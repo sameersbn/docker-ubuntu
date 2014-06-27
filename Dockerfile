@@ -15,6 +15,6 @@ RUN sed 's/main$/main universe/' -i /etc/apt/sources.list && \
 		apt-get clean # 20140519
 
 ADD assets/ /app/
-RUN mv /app/.vimrc /app/.bash_aliases /root/ && \
+RUN mv /app/.bash_aliases /root/ && \
 		chmod 755 /app/setup/install
 RUN /app/setup/install
