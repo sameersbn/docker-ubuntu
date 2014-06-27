@@ -8,8 +8,7 @@ echo "root:$ROOT_PASSWORD" | chpasswd
 echo User: root Password: $ROOT_PASSWORD
 
 # start supervisord
-/usr/bin/supervisord
-supervisorctl start sshd
+/usr/bin/supervisord -c /etc/supervisor/supervisord.conf
 
 appStart () {
 	tail -F /var/log/supervisor/supervisord.log
