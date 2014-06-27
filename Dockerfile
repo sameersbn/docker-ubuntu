@@ -16,4 +16,4 @@ RUN sed 's/main$/main universe/' -i /etc/apt/sources.list && \
 
 ADD install /install
 RUN chmod 755 /install
-RUN /install
+RUN /install && rm -rf /install
