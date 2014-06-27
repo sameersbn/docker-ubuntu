@@ -13,6 +13,6 @@ RUN apt-get update && \
 		locale-gen en_US && \
 		apt-get clean # 20140519
 
-ADD assets/ /app/
-RUN chmod 755 /app/setup/install
-RUN /app/setup/install
+ADD install /install
+RUN chmod 755 /install
+RUN /install
