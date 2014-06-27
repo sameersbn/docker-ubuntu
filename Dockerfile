@@ -14,6 +14,6 @@ RUN sed 's/main$/main universe/' -i /etc/apt/sources.list && \
 		locale-gen en_US && \
 		apt-get clean # 20140519
 
-ADD assets/ /app/
-RUN chmod 755 /app/setup/install
-RUN /app/setup/install
+ADD install /install
+RUN chmod 755 /install
+RUN /install
