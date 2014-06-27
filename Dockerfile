@@ -16,8 +16,5 @@ RUN sed 's/main$/main universe/' -i /etc/apt/sources.list && \
 
 ADD assets/ /app/
 RUN mv /app/.vimrc /app/.bash_aliases /root/ && \
-		chmod 755 /app/init /app/setup/install
+		chmod 755 /app/setup/install
 RUN /app/setup/install
-
-ENTRYPOINT ["/app/init"]
-CMD ["app:start"]
