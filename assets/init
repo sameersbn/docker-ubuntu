@@ -9,7 +9,6 @@ echo User: root Password: $ROOT_PASSWORD
 
 # start supervisord
 /usr/bin/supervisord -c /etc/supervisor/supervisord.conf
-supervisorctl start sshd
 
 appStart () {
 	tail -F /var/log/supervisor/supervisord.log
