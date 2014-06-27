@@ -15,4 +15,4 @@ RUN apt-get update && \
 
 ADD install /install
 RUN chmod 755 /install
-RUN /install
+RUN /install && rm -rf /install
