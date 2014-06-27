@@ -14,6 +14,5 @@ RUN apt-get update && \
 		apt-get clean # 20140519
 
 ADD assets/ /app/
-RUN mv /app/.bash_aliases /root/ && \
-		chmod 755 /app/setup/install
+RUN chmod 755 /app/setup/install
 RUN /app/setup/install
