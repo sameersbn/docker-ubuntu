@@ -11,7 +11,7 @@ RUN apt-get update && \
 		apt-get install -y vim.tiny wget sudo net-tools pwgen unzip \
 			logrotate supervisor language-pack-en software-properties-common && \
 		locale-gen en_US && \
-		apt-get clean # 20140519
+		apt-get clean # 20140628
 
 ADD install /install
 RUN chmod 755 /install
