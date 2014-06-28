@@ -12,7 +12,7 @@ RUN sed 's/main$/main universe/' -i /etc/apt/sources.list && \
 		apt-get install -y vim.tiny wget sudo net-tools pwgen unzip \
 			logrotate supervisor language-pack-en python-software-properties && \
 		locale-gen en_US && \
-		apt-get clean # 20140519
+		apt-get clean # 20140628
 
 ADD install /install
 RUN chmod 755 /install
