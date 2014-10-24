@@ -1,8 +1,6 @@
 FROM ubuntu:12.04
 MAINTAINER sameer@damagehead.com
 
-ENV DEBIAN_FRONTEND noninteractive
-
 RUN echo "APT::Install-Recommends 0;" >> /etc/apt/apt.conf.d/01norecommends \
  && echo "APT::Install-Suggests 0;" >> /etc/apt/apt.conf.d/01norecommends \
  && apt-get update \
