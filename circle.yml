@@ -1,0 +1,9 @@
+machine:
+  services:
+    - docker
+dependencies:
+  override:
+    - docker build -t sameersbn/ubuntu .
+test:
+  override:
+    - docker run -it --rm sameersbn/ubuntu echo "Hello World"
