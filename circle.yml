@@ -2,9 +2,13 @@ machine:
   services:
     - docker
 dependencies:
+  cache_directories:
+    - "~/sameersbn"
   override:
     - docker info
+    - if [[ -e ~/sameersbn/ubuntu.tar ]]; then docker load --input ~/sameersbn/ubuntu.tar; fi
     - docker build -t sameersbn/ubuntu .
+    - mkdir -p ~/sameersbn; docker save sameersbn/ubuntu > ~/sameersbn/ubuntu.tar
 test:
   override:
     - docker run -it sameersbn/ubuntu echo "Hello World"
