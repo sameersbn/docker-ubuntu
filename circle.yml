@@ -6,4 +6,4 @@ dependencies:
     - docker build -t sameersbn/ubuntu .
 test:
   override:
-    - docker run -it --rm sameersbn/ubuntu echo "Hello World"
+    - docker run -it sameersbn/ubuntu echo "Hello World"
