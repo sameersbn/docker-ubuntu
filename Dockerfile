@@ -1,4 +1,4 @@
-FROM ubuntu:trusty-20150528
+FROM ubuntu:trusty-20150612
 MAINTAINER sameer@damagehead.com
 
 RUN echo 'APT::Install-Recommends 0;' >> /etc/apt/apt.conf.d/01norecommends \
