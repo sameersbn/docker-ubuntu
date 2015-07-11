@@ -10,4 +10,4 @@ rebuild: base
 	@docker build --tag=${USER}/ubuntu:latest .
 
 release: rebuild
-	@docker build --tag=${USER}/ubuntu:14.04.$(shell date +%Y%m%d) .
+	@docker build --tag=${USER}/ubuntu:$(shell cat VERSION) .
