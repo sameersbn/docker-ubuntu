@@ -1,7 +1,7 @@
 all: build
 
 build:
-	@docker build --tag=quay.io/sameersbn/ubuntu:latest .
+	@docker build --tag=sameersbn/ubuntu:latest .
 
 release: build
-	@docker build --tag=quay.io/sameersbn/ubuntu:$(shell cat VERSION) .
+	@docker build --tag=sameersbn/ubuntu:$(shell cat VERSION) .
