@@ -1,4 +1,4 @@
-FROM ubuntu:xenial-20160914
+FROM ubuntu:xenial-20160923.1
 MAINTAINER sameer@damagehead.com
 
 RUN echo 'APT::Install-Recommends 0;' >> /etc/apt/apt.conf.d/01norecommends \
